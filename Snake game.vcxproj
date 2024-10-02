@@ -150,6 +150,9 @@
     <ClInclude Include="Bar.h" />
     <ClInclude Include="Out of bounds.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\pixel-emulator.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

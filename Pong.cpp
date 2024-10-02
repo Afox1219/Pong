@@ -10,6 +10,7 @@
 #include "ball.h"
 #include"Bar.h"
 #include "Out of bounds.h"
+#include <sstream>
 void init() 
 {
     
@@ -28,7 +29,41 @@ int main()
     Oob OutB2(0, 710);
     sf::Time dt;
     sf::Event event;
+    sf::Font font;
+    font.loadFromFile("pixel.ttf");
+    
+    sf::Text fontHud;
+    fontHud.setFont(font);
+    fontHud.setPosition(100, 5);
+    fontHud.setCharacterSize(30);
+    fontHud.setOutlineThickness(2);
+    fontHud.setOutlineColor(sf::Color::White);
+    fontHud.setFillColor(sf::Color::Green);
+
+    int lives = 3;
+    std::stringstream ss;
+    ss << "Lives: " << lives;
+
+    fontHud.setString(ss.str());
+
+    sf::Text qfontHud;
+    qfontHud.setFont(font);
+    qfontHud.setPosition(1100, 680);
+    qfontHud.setCharacterSize(30);
+    qfontHud.setOutlineThickness(2);
+    qfontHud.setOutlineColor(sf::Color::White);
+    qfontHud.setFillColor(sf::Color::Green);
+
+    int qlives = 3;
+    std::stringstream qss;
+    qss << "Lives: " << qlives;
+
+    fontHud.setString(ss.str());
+    qfontHud.setString(qss.str());
+
     float bounce_timer = 0.10;
+
+    
 
     while (window.isOpen())
     {
@@ -139,6 +174,8 @@ int main()
         window.draw(myBar2.getshape());
         window.draw(OutB.getshape());
         window.draw(OutB2.getshape());
+        window.draw(fontHud);
+        window.draw(qfontHud);
 
         window.display();
     }
